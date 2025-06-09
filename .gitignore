@@ -1,0 +1,8 @@
+/AngularCapstone/node_modules/
+/AngularCapstone/dist/
+
+/AuctionSystem/bin/
+/AuctionSystem/obj/
+
+*.log
+.env
