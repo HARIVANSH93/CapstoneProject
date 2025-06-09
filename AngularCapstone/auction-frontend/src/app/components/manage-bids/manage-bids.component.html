@@ -1,0 +1,23 @@
+<div class="manage-bids">
+  <h2>📋 Manage Bids</h2>
+  <table>
+    <thead>
+      <tr>
+        <th>Bid ID</th>
+        <th>Bid Amount</th>
+        <th>Bid Time</th>
+        <th>User ID</th>
+        <th>Auction ID</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let bid of bids">
+        <td>{{ bid.bidId }}</td>
+        <td>{{ bid.bidAmount }}</td>
+        <td>{{ bid.bidTime | date: 'short' }}</td>
+        <td>{{ bid.userId }}</td>
+        <td>{{ bid.auctionId }}</td>
+      </tr>
+    </tbody>
+  </table>
+</div>

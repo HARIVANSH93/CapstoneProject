@@ -1,0 +1,55 @@
+<div class="register-container">
+  <h2>Register as User</h2>
+
+  <form #registerForm="ngForm" (ngSubmit)="register()" novalidate>
+    <!-- Full Name: No numbers or special characters -->
+    <input
+      type="text"
+      placeholder="Full Name"
+      [(ngModel)]="fullName"
+      name="fullName"
+      #fullNameRef="ngModel"
+      required
+      pattern="^[a-zA-Z\s]+$"
+    />
+    <div *ngIf="fullNameRef.invalid && fullNameRef.touched" class="error">
+      <span *ngIf="fullNameRef.errors?.['required']">Name is required.</span>
+      <span *ngIf="fullNameRef.errors?.['pattern']">Only letters and spaces allowed.</span>
+    </div>
+
+    <!-- Email: Must be valid -->
+    <input
+      type="email"
+      placeholder="Email"
+      [(ngModel)]="email"
+      name="email"
+      #emailRef="ngModel"
+      required
+    />
+    <div *ngIf="emailRef.invalid && emailRef.touched" class="error">
+      <span *ngIf="emailRef.errors?.['required']">Email is required.</span>
+      <span *ngIf="emailRef.errors?.['email']">Enter a valid email.</span>
+    </div>
+
+    <!-- Password: Minimum 6 characters -->
+    <input
+      type="password"
+      placeholder="Password"
+      [(ngModel)]="password"
+      name="password"
+      #passwordRef="ngModel"
+      required
+      minlength="6"
+    />
+    <div *ngIf="passwordRef.invalid && passwordRef.touched" class="error">
+      <span *ngIf="passwordRef.errors?.['required']">Password is required.</span>
+      <span *ngIf="passwordRef.errors?.['minlength']">Minimum 6 characters.</span>
+    </div>
+
+    <button type="submit" [disabled]="registerForm.invalid">Register</button>
+  </form>
+
+  <p class="message" [ngClass]="{ success: message.startsWith('✅'), error: message.startsWith('❌') }">
+    {{ message }}
+  </p>
+</div>

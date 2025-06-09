@@ -1,0 +1,44 @@
+<div class="manage-auctions-container">
+  <h2>📦 Manage Auctions</h2>
+
+  <button class="create-btn" (click)="openCreateForm()">+ Create New Auction</button>
+
+  <!-- ✅ Create Auction Form -->
+  <div class="auction-form" *ngIf="showForm">
+    <h3>📝 New Auction</h3>
+    <form (ngSubmit)="submitAuction()" #auctionForm="ngForm">
+      <input type="text" placeholder="Title" [(ngModel)]="newAuction.title" name="title" required />
+      <textarea placeholder="Description" [(ngModel)]="newAuction.description" name="description" required></textarea>
+      <input type="number" placeholder="Starting Price" [(ngModel)]="newAuction.startingPrice" name="startingPrice" required />
+      <input type="datetime-local" [(ngModel)]="newAuction.startTime" name="startTime" required />
+      <input type="datetime-local" [(ngModel)]="newAuction.endTime" name="endTime" required />
+      
+      <label>Upload Image:</label>
+      <input type="file" (change)="onImageSelected($event)" accept="image/*" />
+
+      <div class="form-buttons">
+        <button type="submit"> Create</button>
+        <button type="button" class="cancel-btn" (click)="cancelCreate()"> Cancel</button>
+      </div>
+    </form>
+  </div>
+
+  <div class="auction-grid">
+    <div class="auction-card" *ngFor="let auction of auctions">
+      <img *ngIf="auction.imageBase64" [src]="auction.imageBase64" alt="Auction Image" />
+      <div class="info">
+        <h4>{{ auction.title }}</h4>
+        <p><strong>Price:</strong> ₹{{ auction.startingPrice }}</p>
+        <p>{{ auction.description }}</p>
+        <p><strong>Status:</strong> {{ isAuctionLive(auction.endTime) ? '🟢 Live' : '🔴 Ended' }}</p>
+        <p><strong>Ends At:</strong> {{ auction.endTime | date:'medium' }}</p>
+
+        <!-- ✅ Edit/Delete Buttons -->
+        <div class="action-buttons">
+          <button (click)="editAuction(auction)">✏️ Edit</button>
+          <button class="danger" (click)="deleteAuction(auction.auctionId)">🗑️ Delete</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,22 @@
+<h2>💰 Manage Transactions</h2>
+
+<table>
+  <thead>
+    <tr>
+      <th>#</th>
+      <th>User</th>
+      <th>Auction</th>
+      <th>Amount</th>
+      <th>Date</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let txn of transactions">
+      <td>{{ txn.transactionId }}</td>
+      <td>{{ txn.userId }}</td>
+      <td>{{ txn.auctionId }}</td>
+      <td>₹{{ txn.amount }}</td>
+      <td>{{ txn.date | date:'medium' }}</td>
+    </tr>
+  </tbody>
+</table>

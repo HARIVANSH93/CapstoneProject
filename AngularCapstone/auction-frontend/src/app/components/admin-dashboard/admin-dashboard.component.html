@@ -1,0 +1,18 @@
+<div class="admin-layout">
+  <aside class="sidebar">
+    <h3>Admin Panel</h3>
+    <nav>
+      
+      <a routerLink="/admin/manage-users" routerLinkActive="active">👥 Users</a>
+      <a routerLink="/admin/manage-auctions" routerLinkActive="active">📦 Auctions</a>
+      <a routerLink="/admin/manage-bids" routerLinkActive="active">🎯 Bids</a>
+      <a routerLink="/admin/manage-transactions" routerLinkActive="active">💰 Transactions</a>
+      <a routerLink="/admin/manage-notifications" routerLinkActive="active">🔔 Notifications</a>
+      <a routerLink="/admin/home" routerLinkActive="active">🏠 Logout</a>
+    </nav>
+  </aside>
+
+  <main class="main-content">
+    <router-outlet></router-outlet> <!-- child components will be loaded here -->
+  </main>
+</div>

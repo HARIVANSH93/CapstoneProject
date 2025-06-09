@@ -1,0 +1,9 @@
+<div class="category-container">
+  <h2>Available Categories</h2>
+  <ul *ngIf="categories.length > 0; else noCategory">
+    <li *ngFor="let cat of categories">{{ cat.name }}</li>
+  </ul>
+  <ng-template #noCategory>
+    <p>No categories available.</p>
+  </ng-template>
+</div>

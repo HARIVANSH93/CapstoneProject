@@ -1,0 +1,22 @@
+<div class="auction-grid">
+  <div class="auction-card" *ngFor="let auction of auctions">
+    <img *ngIf="auction.imageBase64" [src]="auction.imageBase64" alt="Auction Image" />
+
+    <div class="auction-info">
+      <h4>{{ auction.title }}</h4>
+      <p>{{ auction.description }}</p>
+      <p><strong>Start:</strong> {{ auction.startTime | date:'short' }}</p>
+      <p><strong>End:</strong> {{ auction.endTime | date:'short' }}</p>
+      <p><strong>Buy out:</strong> ₹{{ auction.currentBid || auction.startingPrice }}</p>
+      <p><strong>Status:</strong> {{ isAuctionLive(auction.endTime) ? '🟢 Live' : '🔴 Ended' }}</p>
+    </div>
+
+    <div class="bid-actions" *ngIf="isAuctionLive(auction.endTime)">
+<button class="buy-now" (click)="buyNow(auction)">Buy Now</button>
+    </div>
+
+    <div class="ended-label" *ngIf="!isAuctionLive(auction.endTime)">
+      🛑 Auction Ended
+    </div>
+  </div>
+</div>

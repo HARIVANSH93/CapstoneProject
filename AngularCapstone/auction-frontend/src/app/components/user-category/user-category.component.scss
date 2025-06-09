@@ -1,0 +1,15 @@
+.category-container {
+  padding: 2rem;
+  h2 {
+    font-size: 1.8rem;
+    margin-bottom: 1rem;
+  }
+  ul {
+    list-style: none;
+    padding: 0;
+    li {
+      padding: 0.5rem 0;
+      border-bottom: 1px solid #ddd;
+    }
+  }
+}

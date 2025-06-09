@@ -1,0 +1,26 @@
+<h2>🧾 Your Transactions</h2>
+
+<div *ngIf="transactions.length === 0">
+  <p>You haven’t made any transactions yet.</p>
+</div>
+
+<table *ngIf="transactions.length > 0" class="transaction-table">
+  <thead>
+    <tr>
+      <th>#</th>
+      <th>Auction</th>
+      <th>Amount</th>
+      <th>Status</th>
+      <th>Date</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let txn of transactions; let i = index">
+      <td>{{ i + 1 }}</td>
+      <td>{{ txn.auctionTitle }}</td>
+      <td>₹ {{ txn.amount }}</td>
+      <td>{{ txn.status }}</td>
+      <td>{{ txn.timestamp | date: 'short' }}</td>
+    </tr>
+  </tbody>
+</table>

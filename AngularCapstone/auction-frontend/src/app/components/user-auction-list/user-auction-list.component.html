@@ -1,0 +1,16 @@
+<div class="auction-container">
+  <h2>🛒 Active Auctions</h2>
+  <div *ngIf="auctions.length > 0; else noAuction">
+    <div class="auction-card" *ngFor="let auction of auctions">
+      <h3>{{ auction.title }}</h3>
+      <p>{{ auction.description }}</p>
+      <p><strong>Current Bid:</strong> ₹{{ auction.currentBid }}</p>
+      <p><strong>Ends At:</strong> {{ auction.endTime | date:'medium' }}</p>
+      <button>Place a Bid</button>
+    </div>
+  </div>
+
+  <ng-template #noAuction>
+    <p>No auctions available at the moment.</p>
+  </ng-template>
+</div>

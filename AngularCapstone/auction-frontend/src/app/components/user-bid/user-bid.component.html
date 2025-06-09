@@ -1,0 +1,25 @@
+<div class="bid-container">
+  <h2>🧾 My Bids</h2>
+  <p *ngIf="error" class="error">{{ error }}</p>
+
+  <table *ngIf="bids.length > 0" class="bid-table">
+    <thead>
+      <tr>
+        <th>Bid ID</th>
+        <th>Auction ID</th>
+        <th>Amount</th>
+        <th>Time</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let bid of bids">
+        <td>{{ bid.bidId }}</td>
+        <td>{{ bid.auctionId }}</td>
+        <td>₹{{ bid.bidAmount }}</td>
+        <td>{{ bid.bidTime | date:'short' }}</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <p *ngIf="bids.length === 0 && !error">You haven't placed any bids yet.</p>
+</div>

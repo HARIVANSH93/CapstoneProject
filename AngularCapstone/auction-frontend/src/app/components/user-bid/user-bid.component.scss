@@ -1,0 +1,26 @@
+.bid-container {
+  padding: 1rem;
+
+  h2 {
+    color: #333;
+  }
+
+  .error {
+    color: red;
+  }
+
+  .bid-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 1rem;
+
+    th, td {
+      padding: 0.75rem;
+      border: 1px solid #ccc;
+    }
+
+    th {
+      background-color: #f8f8f8;
+    }
+  }
+}

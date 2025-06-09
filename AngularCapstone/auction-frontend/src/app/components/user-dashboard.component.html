@@ -1,0 +1,29 @@
+<div class="dashboard-wrapper">
+
+  <!-- 🌐 Top Bar -->
+  <div class="top-nav">
+    <div class="logo">AuctionHub</div>
+    <div class="user-info">
+      <span>{{ user?.fullName }}</span> |
+      <span>{{ user?.email }}</span> |
+      <span>Role: {{ user?.role }}</span>
+      <button (click)="logout()">Logout</button>
+    </div>
+  </div>
+
+  <!-- 🎉 Welcome Section -->
+  <section class="welcome-section">
+    <h2>Welcome, {{ user?.fullName }} 👋</h2>
+    <p>Explore and bid in real-time on active auctions. Enjoy secure and competitive bidding!</p>
+  </section>
+
+ 
+
+ 
+
+ <section>
+  <h3>Live Auctions</h3>
+  <app-user-auction></app-user-auction>
+</section>
+
+</div>

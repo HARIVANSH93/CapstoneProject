@@ -1,0 +1,12 @@
+<div class="category-container">
+  <h2>Categories</h2>
+  <ul *ngIf="categories.length > 0; else noData">
+    <li *ngFor="let cat of categories">
+      🏷️ {{ cat.name }}
+    </li>
+  </ul>
+
+  <ng-template #noData>
+    <p>No categories available.</p>
+  </ng-template>
+</div>

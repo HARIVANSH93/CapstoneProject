@@ -1,0 +1,12 @@
+<h2>Your Notifications</h2>
+<div *ngIf="notifications.length === 0">
+  <p>No notifications available.</p>
+</div>
+
+<ul class="notification-list">
+  <li *ngFor="let note of notifications">
+    <strong>{{ note.title }}</strong>
+    <p>{{ note.message }}</p>
+    <small>{{ note.timestamp | date:'short' }}</small>
+  </li>
+</ul>
